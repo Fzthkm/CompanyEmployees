@@ -26,7 +26,10 @@ namespace Repository
             await FindByCondition(c => c.Id.Equals(companyId), trackChanges)
             .FirstOrDefaultAsync();
 
-        public void CreateCompany(Company company) => Create(company);
+        public void CreateCompany(Company company) {
+            company.CreateDate = DateTime.Now;
+            Create(company);
+        } 
 
         public async Task<IEnumerable<Company>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges) =>
             await FindByCondition(x => ids.Contains(x.Id), trackChanges)

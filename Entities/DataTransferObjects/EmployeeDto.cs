@@ -13,5 +13,9 @@ namespace Entities.DataTransferObjects
         public int Age { get; set; }
         
         public string Position { get; set; }
+
+        public DateTime LastModify { get; set; }
+
+        public DateTime CreateDate { get; set; }
     }
 }

@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
-namespace Entities.Models
+namespace Entities.DataTransferObjects
 {
-    public class Company
+    public abstract class CompanyForManipulation
     {
-        [Column("CompanyId")]
-        public Guid Id { get; set; }
-        
-        [Required(ErrorMessage = "Company name is a required field.")]
+        [Required(ErrorMessage = "Company Name is a required field.")]
         [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
         public string Name { get; set; }
 
@@ -20,10 +17,8 @@ namespace Entities.Models
 
         public string Country { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public DateTime Date { get; set; }
 
-        public DateTime LastModify { get; set; }
-
-        public ICollection<Employee> Employees { get; set; }
+        public IEnumerable<EmployeeForCreationDto> Employees { get; set; }
     }
 }

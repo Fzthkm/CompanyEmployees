@@ -9,5 +9,7 @@ namespace Entities.DataTransferObjects
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string FullAddress { get; set; }
+        public DateTime LastModify { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

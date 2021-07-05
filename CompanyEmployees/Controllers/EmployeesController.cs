@@ -156,7 +156,7 @@ namespace CompanyEmployees.Controllers
                 _logger.LogInfo($"Employee with id: {id} doesn't exist in the database.");
                 return NotFound();
             }
-
+            employee.Date = DateTime.Now;
             _mapper.Map(employee, employeeEntity);
             await _repository.SaveAsync();
 

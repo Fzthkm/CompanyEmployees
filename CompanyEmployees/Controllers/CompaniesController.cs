@@ -145,6 +145,7 @@ namespace CompanyEmployees.Controllers
                 return NotFound();
             }
 
+            company.Date = DateTime.Now;
             _mapper.Map(company, companyEntity);
             await _repository.SaveAsync();
 

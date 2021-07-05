@@ -39,12 +39,10 @@ namespace Repository
         public void CreateEmployeeForCompany(Guid companyId, Employee employee)
         {
             employee.CompanyId = companyId;
+            employee.CreateDate = DateTime.Now;
             Create(employee);
         }
 
-        public void DeleteEmployee(Employee employee)
-        {
-            Delete(employee);
-        }
+        public void DeleteEmployee(Employee employee) => Delete(employee);
     }
 }
